@@ -1,0 +1,9 @@
+.main_content{
+    grid-area: c;
+    background-color: #7e9c78;
+
+}
+
+.avatar{
+    width: 1200px;
+}
