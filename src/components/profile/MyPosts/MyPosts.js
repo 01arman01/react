@@ -1,24 +1,39 @@
-import  react from 'react'
+import react from 'react'
 import s from './MyPosts.module.css'
 import AvaPostImg from '../../../images/avapost.png'
 import Post from "./Post/Post";
-const MyPosts = (props)=>{
-    debugger;
-        return (
 
+const postsData = [
+    {id: 1, message: 'Hi. how are you?', likesCount: 15},
+    {id: 2, message: 'it\'s my first post.', likesCount: 25},
+    {id: 3, message: 'i am fine and you?', likesCount: 35},
+    {id: 4, message: 'i am fine thanks', likesCount: 95},
+
+]
+
+const  postElement = postsData.map(post => <Post message={post.message} likeCount={post.id}/>)
+
+
+const MyPosts = (props) => {
+    debugger;
+    return (
+
+        <div className={s.myPostsBlock}>
             <div>
+                <h3>My Posts</h3>
                 <div>
-                    <textarea cols="30" rows="10"></textarea>
-                    <br/>
+                    <textarea cols="30" rows="10"/>
+                </div>
+                <div>
                     <button>Add post</button>
                 </div>
-                <div>new post</div>
-                <Post message='Hi. how are you?' likeCount={15}  />
-                <Post message={`it's my first post.`} likeCount={22}/>
-                <Post message='i am fine and you?' likeCount={3}/>
-                <Post message={`i am fine thanks`}  likeCount={96}/>
-
             </div>
-        );
+
+            <div className={s.posts}>
+                {postElement}
+            </div>
+
+        </div>
+    );
 }
-export  default  MyPosts
+export default MyPosts

@@ -11,5 +11,9 @@
 a{
   text-decoration: none;
 }
-
+.app_wrapper_content{
+  grid-area: c;
+  background-color: #7e9c78;
+  width: 100%;
+}
 
