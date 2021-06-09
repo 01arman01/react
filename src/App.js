@@ -9,7 +9,8 @@ import News from "./components/news/news";
 import Music from "./components/music/music";
 
 
-const App = () => {
+const App = (props) => {
+
     return (
         <BrowserRouter>
             <div className='app_wrapper'>
@@ -17,10 +18,12 @@ const App = () => {
                 <Navbar/>
                 {/*     exact  => dlya path  chtobi menyal  component*/}
                 <div className='app_wrapper_content'>
-                    <Route path='/profile' component={Profile} />
-                    <Route  path='/dialogs' component={Dialogs}/>
-                    <Route path='/news' component={News} />
-                    <Route path='/music' component={Music} />
+                    <Route path='/profile' render={(() => <Profile
+                        profileData={props.state.profilePage} />)}/>
+                    <Route path='/dialogs' render={(() => <Dialogs
+                        messagesData={props.state.messagesPage}/>)}/>
+                    <Route path='/news' render={News}/>
+                    <Route path='/music' render={Music}/>
                 </div>
             </div>
         </BrowserRouter>

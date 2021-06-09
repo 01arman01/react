@@ -1,0 +1,32 @@
+.message {
+    padding: 15px;
+    background-color: #a2d299;
+    border-radius: 10px;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+}
+.dialogs_message > .smile > img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.smile {
+    margin-right: 20px;
+}
+.dialogs_message {
+    display: flex;
+    align-items: center;
+}
+
+.dialogs_message p {
+    margin: 0;
+    text-align: center;
+    color: white;
+}
+
+.dialogs_messages {
+
+}

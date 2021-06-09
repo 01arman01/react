@@ -1,0 +1,16 @@
+.dialog_item>a,.dialog_item {
+    margin: 10px;
+    font-style: italic;
+    font-size: 18px;
+    color: #C3E7FF;
+    font-weight: bold;
+    text-transform: uppercase;
+
+}
+.dialog_item>a:hover {
+    color: green;
+}
+.active {
+    color: green;
+
+}

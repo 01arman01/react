@@ -9,57 +9,15 @@
     border-right: 2px solid wheat;
 }
 
-.dialogs_messages {
 
-}
 
-.dialog_item>a,.dialog_item {
-    margin: 10px;
-    font-style: italic;
-    font-size: 18px;
-    color: #C3E7FF;
-    font-weight: bold;
-    text-transform: uppercase;
 
-}
 
-.dialog_item>a:hover {
-    color: green;
-}
 
-.dialogs_message {
-    display: flex;
-    align-items: center;
-}
 
-.dialogs_message p {
-    margin: 0;
-    text-align: center;
-    color: white;
-}
 
-.smile {
-    margin-right: 20px;
-}
 
-.dialogs_message > .smile > img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-}
 
-.message {
-    padding: 15px;
-    background-color: #a2d299;
-    border-radius: 10px;
-    font-size: 18px;
-    color: white;
-    font-weight: bold;
-    font-style: italic;
 
-}
 
-.active {
-    color: green;
 
-}
