@@ -3,6 +3,8 @@ import s from "./Message.module.css";
 import smileMessages from "../../../images/smile_messages.png";
 
 const Messages = (props) => {
+
+
     return (
         <div className={s.dialogs_message}>
             <div className={s.smile}>

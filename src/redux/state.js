@@ -1,3 +1,5 @@
+import {renderEntireTree} from './../render'
+
 const state = {
     messagesPage: {
         messagesData: [
@@ -16,6 +18,7 @@ const state = {
             {id: 6, name: 'Artur'},
             {id: 7, name: 'Sveta'},
         ],
+        newMessageText : 'new message text'
     },
     profilePage: {
         postsData: [
@@ -24,7 +27,54 @@ const state = {
             {id: 3, message: 'i am fine and you?', likesCount: 35},
             {id: 4, message: 'i am fine thanks', likesCount: 95},
 
-        ]
+        ],
+        newPostText: "newPostText",
     }
 }
+// ------ Profile Functions --------
+export const addPosts = () => {
+
+    let id = state.profilePage.postsData.length + 1
+    let newPost = {
+        id: id,
+        message: state.profilePage.newPostText,
+    }
+
+
+    state.profilePage.postsData.push(newPost)
+    state.profilePage.newPostText = ''
+    renderEntireTree(state)
+    return 0
+
+}
+
+
+
+export const updateNewPostText = (newPostText) => {
+    state.profilePage.newPostText = newPostText
+    renderEntireTree(state)
+}
+
+// ------------ dialogs functions ----------
+
+export const addMessage = () => {
+    let id = state.messagesPage.messagesData.length
+    let newMessage = {
+        id,
+        message: state.messagesPage.newMessageText,
+        likesCount: 9999
+    }
+    state.messagesPage.messagesData.push(newMessage)
+    state.messagesPage.newMessageText = ''
+    renderEntireTree(state)
+
+}
+export  const updateNewMessageText = (newMessageText)=>{
+         state.messagesPage.newMessageText = newMessageText
+        console.log('newMessageText=>'+newMessageText)
+         renderEntireTree(state)
+}
+
+
+
 export default state
