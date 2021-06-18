@@ -1,10 +1,7 @@
 import react from 'react'
 import s from './Dialogs.module.css'
-import smileMessages from './../../images/smile_messages.png'
-import {NavLink} from "react-router-dom";
 import DialogItem from "./DialogsItem/DialogItem";
 import Messages from "./DialogsMessages/Messages";
-import {updateNewMessageText} from "../../redux/state";
 
 
 const Dialogs = (props) => {
@@ -19,8 +16,8 @@ const Dialogs = (props) => {
         props.dispatch({type:'ADD_MESSAGE'})
     }
 
-    const onMessageChange = ()=>{
-        let newMessageText = newMessageElement.current.value
+    const onMessageChange = (e)=>{
+        let newMessageText = e.target.value
         props.dispatch({
             type:'UPDATE_NEW_MESSAGE_TEXT',
             newMessageText
@@ -43,7 +40,7 @@ const Dialogs = (props) => {
                 </div>
                 <div>
                     <div className={s.addMessage}>
-                        <textarea ref={newMessageElement} onChange={onMessageChange} value={props.messagesData.newMessageText}/>
+                        <textarea  onChange={onMessageChange} value={props.messagesData.newMessageText} placeholder='send your message'/>
                     </div>
                     <div>
                         <button onClick={addMessage}>Add Message</button>

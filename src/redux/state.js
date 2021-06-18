@@ -1,3 +1,9 @@
+const  ADD_POST = 'ADD_POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
+const ADD_MESSAGE = 'ADD_MESSAGE';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
+
+
 let store = {
         _state: {
             messagesPage: {
@@ -17,7 +23,7 @@ let store = {
                     {id: 6, name: 'Artur'},
                     {id: 7, name: 'Sveta'},
                 ],
-                newMessageText: 'new message text'
+                newMessageText: ''
             },
             profilePage: {
                 postsData: [
@@ -27,7 +33,7 @@ let store = {
                     {id: 4, message: 'i am fine thanks', likesCount: 95},
 
                 ],
-                newPostText: "newPostText",
+                newPostText: "",
             }
         },
         getState() {
@@ -44,7 +50,7 @@ let store = {
         dispatch(action) {
             // ------ Profile Methods --------
 
-            if (action.type === 'ADD_POST') {
+            if (action.type === ADD_POST) {
 
                 let id = this._state.profilePage.postsData.length + 1
                 debugger;
@@ -56,12 +62,12 @@ let store = {
                 this._state.profilePage.newPostText = ''
                 this._renderEntireTree()
                 return 0
-            } else if (action.type === 'UPDATE_NEW_POST_TEXT') {
+            } else if (action.type === UPDATE_NEW_POST_TEXT) {
                 this._state.profilePage.newPostText = action.newPostText
                 this._renderEntireTree()
 
 
-            }else if (action.type === 'ADD_MESSAGE') {
+            }else if (action.type === ADD_MESSAGE) {
                 // ------------ dialogs functions ----------
                 let id = this._state.messagesPage.messagesData.length
                 let newMessage = {
@@ -73,7 +79,7 @@ let store = {
                 this._state.messagesPage.newMessageText = ''
                 this._renderEntireTree()
 
-            }else if (action.type === 'UPDATE_NEW_MESSAGE_TEXT') {
+            }else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
                 this._state.messagesPage.newMessageText = action.newMessageText
                 this._renderEntireTree()
             }
