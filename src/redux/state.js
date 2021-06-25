@@ -1,7 +1,6 @@
-const  ADD_POST = 'ADD_POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
-const ADD_MESSAGE = 'ADD_MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
+import dialogsReducer from "./dialogs-reducer";
+import profileReducer from "./profile-reducer";
+
 
 
 let store = {
@@ -48,41 +47,9 @@ let store = {
         },
 
         dispatch(action) {
-            // ------ Profile Methods --------
-
-            if (action.type === ADD_POST) {
-
-                let id = this._state.profilePage.postsData.length + 1
-                debugger;
-                let newPost = {
-                    id: id,
-                    message: this._state.profilePage.newPostText,
-                }
-                this._state.profilePage.postsData.push(newPost)
-                this._state.profilePage.newPostText = ''
-                this._renderEntireTree()
-                return 0
-            } else if (action.type === UPDATE_NEW_POST_TEXT) {
-                this._state.profilePage.newPostText = action.newPostText
-                this._renderEntireTree()
-
-
-            }else if (action.type === ADD_MESSAGE) {
-                // ------------ dialogs functions ----------
-                let id = this._state.messagesPage.messagesData.length
-                let newMessage = {
-                    id,
-                    message: this._state.messagesPage.newMessageText,
-                    likesCount: 9999
-                }
-                this._state.messagesPage.messagesData.push(newMessage)
-                this._state.messagesPage.newMessageText = ''
-                this._renderEntireTree()
-
-            }else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-                this._state.messagesPage.newMessageText = action.newMessageText
-                this._renderEntireTree()
-            }
+            this._state.profilePage = profileReducer(this._state.profilePage,action)
+            this._state.messagesPage = dialogsReducer(this._state.messagesPage,action)
+           this._renderEntireTree(this._state)
         },
 
 
