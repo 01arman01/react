@@ -2,27 +2,33 @@ import react from 'react'
 import s from './MyPosts.module.css'
 import AvaPostImg from '../../../images/avapost.png'
 import Post from "./Post/Post";
-import state from "../../../redux/state";
+import state from "../../../redux/store";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profile-reducer";
 
 
 const MyPosts = (props) => {
+
+
+
     const postsData = props.postsData
 
     let postElement = postsData.map(post => <Post message={post.message} likeCount={post.id}/>)
 
     let newPostElement = react.createRef()
-    const addPost = () => {
-        props.dispatch({type:'ADD_POST'})
+    const onAddPost = () => {
+        props.addPost()
+        // props.dispatch(addPostActionCreator())
     }
     const onPostChange = () => {
+
         let newPostText = newPostElement.current.value
-        props.dispatch({
-            type:'UPDATE_NEW_POST_TEXT',
-            newPostText
-        })
+        props.updateNewPostText(newPostText)
+        // console.log(props.newPostText)
+
     }
 
-    console.log(props.newPostText)
+
+
     return (
 
         <div className={s.myPostsBlock}>
@@ -33,7 +39,7 @@ const MyPosts = (props) => {
                               value={props.newPostText}/>
                 </div>
                 <div>
-                    <button onClick={addPost}>Add post</button>
+                    <button onClick={onAddPost}>Add post</button>
                 </div>
             </div>
 
